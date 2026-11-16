@@ -60,6 +60,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       }
     }
 
+    KeyboardShortcuts.onKeyDown(for: .showQRCode) {
+      AppState.shared.toggleQRCodeFromClipboard()
+    }
+
     statusItemVisibilityObserver = observe(\.statusItem.isVisible, options: .new) { _, change in
       if let newValue = change.newValue, Defaults[.showInStatusBar] != newValue {
         Defaults[.showInStatusBar] = newValue

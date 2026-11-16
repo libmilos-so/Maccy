@@ -114,6 +114,20 @@ class AppState: Sendable {
     qrCode.show(text: qrCodeText, relativeTo: appDelegate?.panel)
   }
 
+  // Toggle for the global shortcut. The close branch runs before any
+  // pasteboard read, so dismissing is cheap and never touches the clipboard.
+  // When the popup is open, its own chords own QR behaviour; a global
+  // shortcut firing into an open popup would fight the selection-based flow.
+  @MainActor
+  func toggleQRCodeFromClipboard() {
+    if qrCode.isVisible {
+      qrCode.close()
+      return
+    }
+    guard appDelegate?.panel?.isPresented != true else { return }
+    qrCode.show(text: Clipboard.shared.clipboardText, relativeTo: nil)
+  }
+
   @MainActor
   func closeQRCode() {
     qrCode.close()

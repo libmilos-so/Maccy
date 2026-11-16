@@ -57,13 +57,18 @@ struct GeneralSettingsPane: View {
           .help(Text("DeleteTooltip", tableName: "GeneralSettings"))
           .accessibilityLabel(Text("Delete", tableName: "GeneralSettings"))
       }
-      Settings.Section(
-        bottomDivider: true,
-        label: { Text("ShowPreview", tableName: "GeneralSettings") }
-      ) {
+      Settings.Section(label: { Text("ShowPreview", tableName: "GeneralSettings") }) {
         KeyboardShortcuts.Recorder(for: .togglePreview)
           .help(Text("ShowPreviewTooltip", tableName: "GeneralSettings"))
           .accessibilityLabel(Text("ShowPreview", tableName: "GeneralSettings"))
+      }
+      Settings.Section(
+        bottomDivider: true,
+        label: { Text("ShowQRCode", tableName: "GeneralSettings") }
+      ) {
+        KeyboardShortcuts.Recorder(for: .showQRCode)
+          .help(Text("ShowQRCodeTooltip", tableName: "GeneralSettings"))
+          .accessibilityLabel(Text("ShowQRCode", tableName: "GeneralSettings"))
       }
 
       Settings.Section(

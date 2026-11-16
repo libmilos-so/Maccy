@@ -10,6 +10,8 @@
 "DeleteTooltip" = "Shortcut key to delete history item.\nDefault: ⌥⌫.";
 "ShowPreview" = "Preview:";
 "ShowPreviewTooltip" = "Show preview with additional information.\nDefault: ⌃Space.";
+"ShowQRCode" = "QR code:";
+"ShowQRCodeTooltip" = "Global shortcut key to show the clipboard contents as a QR code from anywhere.\nA repeated press hides the window.\nNo default shortcut.";
 "Behavior" = "Behavior:";
 "PasteAutomatically" = "Paste automatically";
 "PasteWithoutFormatting" = "Paste without formatting";

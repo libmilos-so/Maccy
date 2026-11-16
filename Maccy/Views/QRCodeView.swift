@@ -51,6 +51,10 @@ struct QRCodeMessageView: View {
 
   var body: some View {
     Text(message)
+      // Cap the width so a long localization wraps instead of widening the
+      // window past the screen edge, where the origin clamp would push it
+      // off-screen; fittingSize picks up the wrapped height.
+      .frame(maxWidth: 400)
       .foregroundStyle(.black)
       .padding(QRCodeView.padding)
       .background(.white)

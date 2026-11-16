@@ -43,6 +43,13 @@ class Clipboard {
     changeCount = pasteboard.changeCount
   }
 
+  // The system clipboard's current plain text, if any. A non-string
+  // pasteboard (image, file URL) reads as nil, which callers turn into the
+  // "no text" QR message rather than an error.
+  var clipboardText: String? {
+    pasteboard.string(forType: .string)
+  }
+
   func onNewCopy(_ hook: @escaping OnNewCopyHook) {
     onNewCopyHooks.append(hook)
   }

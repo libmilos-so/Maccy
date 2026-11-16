@@ -27,7 +27,9 @@ class QRCodeWindowController {
       content = NSHostingView(rootView: QRCodeView(image: image, text: text))
     } else {
       let message = NSLocalizedString(
-        text == nil ? "ShowQRCodeNoText" : "ShowQRCodeTooLong",
+        // An empty string is no text either: the global shortcut reads the
+        // live pasteboard, where empty and absent are the same situation.
+        (text ?? "").isEmpty ? "ShowQRCodeNoText" : "ShowQRCodeTooLong",
         tableName: "PreviewItemView",
         comment: ""
       )
@@ -49,12 +51,15 @@ class QRCodeWindowController {
   }
 
   // Place the window next to the popup, on whichever side has room, and keep
-  // it within the popup's own screen — not NSScreen.forPopup, which resolves
-  // to the focused app's screen and may be a different display than the one
-  // the popup sits on (the popup follows the mouse in the default mode).
+  // it within the popup's own screen — not NSScreen.forPopup, which follows
+  // the user's configured screen or the focused app's screen, either of which
+  // may differ from where the popup actually opened.
   private func positionedFrame(for size: NSSize, beside popupWindow: NSWindow?) -> NSRect {
     guard let popupFrame = popupWindow?.frame else {
-      return NSRect(origin: .zero, size: size)
+      // With no popup, centre on the screen containing the mouse — where the
+      // popup itself would open in the default mode.
+      let screen = NSScreen.screens.first { NSMouseInRect(NSEvent.mouseLocation, $0.frame, false) } ?? NSScreen.main
+      return NSRect.centered(ofSize: size, in: screen?.visibleFrame ?? NSRect(origin: .zero, size: size))
     }
 
     let visibleFrame = popupWindow?.screen?.visibleFrame ?? NSScreen.forPopup?.visibleFrame ?? popupFrame
