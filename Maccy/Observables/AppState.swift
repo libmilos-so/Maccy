@@ -16,6 +16,7 @@ class AppState: Sendable {
   var footer: Footer
   var navigator: NavigationManager
   var preview: SlideoutController
+  var qrCode: QRCodeWindowController
 
   var isEditingItem: Bool = false
   var suppressPopupAutoClose: Bool {
@@ -45,6 +46,7 @@ class AppState: Sendable {
     self.footer = footer
     popup = Popup()
     navigator = NavigationManager(history: history, footer: footer)
+    qrCode = QRCodeWindowController()
     preview = SlideoutController(
       onContentResize: { contentWidth in
         Defaults[.windowSize].width = contentWidth
@@ -104,6 +106,28 @@ class AppState: Sendable {
       }
       navigator.select(item: nextUnselectedItem)
     }
+  }
+
+  // QR codes encode the item's plain text; image-only items have nothing to encode.
+  @MainActor
+  func showQRCode() {
+    qrCode.show(text: qrCodeText, relativeTo: appDelegate?.panel)
+  }
+
+  @MainActor
+  func closeQRCode() {
+    qrCode.close()
+  }
+
+  // The lead item's text for the QR window, or nil when the item has no text
+  // at all (image-only or empty). Encodability is decided downstream by
+  // QRCode.image(for:), so over-cap text still reaches the window, which
+  // explains itself instead of drawing a code.
+  var qrCodeText: String? {
+    guard let text = navigator.leadHistoryItem?.item.text, !text.isEmpty else {
+      return nil
+    }
+    return text
   }
 
   func openAbout() {

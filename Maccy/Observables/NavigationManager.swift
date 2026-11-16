@@ -32,6 +32,10 @@ class NavigationManager { // swiftlint:disable:this type_body_length
     didSet {
       guard oldValue?.id != leadHistoryItem?.id else { return }
 
+      // A QR window pointing at an item the user moved away from is
+      // confusing, so close it whenever the selection actually changes.
+      AppState.shared.qrCode.close()
+
       // Announce the visual selection change, keeping repeated navigation updates concise.
       if let item = leadHistoryItem {
         announceForAccessibility {

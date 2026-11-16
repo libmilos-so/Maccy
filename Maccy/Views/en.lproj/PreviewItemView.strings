@@ -11,3 +11,6 @@
 "ClosePreview" = "Press {previewKey} to hide preview.";
 "CopyExtractedText" = "Copy extracted text.";
 "EditItem" = "Edit item";
+"ShowQRCode" = "Press ⌥Q to show a QR code.";
+"ShowQRCodeTooLong" = "This entry is too long to fit into a QR code.";
+"ShowQRCodeNoText" = "This entry has no text to show as a QR code.";

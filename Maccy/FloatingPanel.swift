@@ -219,6 +219,9 @@ class FloatingPanel<Content: View>: NSPanel, NSWindowDelegate {
     super.close()
     let appState = AppState.shared
     appState.preview.state = .closed
+    // The QR window is an overlay of this panel; it must never outlive it,
+    // no matter which path closed the popup (Esc, outside click, selection).
+    appState.qrCode.close()
     appState.isEditingItem = false
     appState.navigator.isDragAndDropInProgress = false
     appState.navigator.isManualMultiSelect = false

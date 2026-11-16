@@ -152,7 +152,16 @@ struct KeyHandlingView<Content: View>: View {
         case .selectCurrentItem:
           appState.select(flags: .currentModifierFlags)
           return .handled
+        case .showQRCode:
+          appState.showQRCode()
+          return .handled
         case .close:
+          // Esc dismisses the QR code first and keeps the popup open,
+          // since the popup stays key while the QR window is shown.
+          if appState.qrCode.isVisible {
+            appState.closeQRCode()
+            return .handled
+          }
           appState.popup.close()
           return .handled
         case .togglePreview:

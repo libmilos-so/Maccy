@@ -35,6 +35,11 @@
 		2F8B9DE62C5D6E5D0046EF69 /* NSPoint+DefaultsSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B9DE52C5D6E5D0046EF69 /* NSPoint+DefaultsSerializable.swift */; };
 		2F9B42EF2F1A494C006548E5 /* ListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9B42EE2F1A4948006548E5 /* ListHeaderView.swift */; };
 		2F9B42F12F1A499D006548E5 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9B42F02F1A4999006548E5 /* ToolbarView.swift */; };
+		6dc850e8c4d4d695acbf474d /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718d353d869bb79cbaa6a45 /* QRCode.swift */; };
+		7c527c23046a559ebca9879f /* QRCodeWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = e64a5edec67b48de20d59f90 /* QRCodeWindowController.swift */; };
+		a38ff9be8f3a97218a3b46f8 /* QRCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269987a7ddf50eae4561c775 /* QRCodeTests.swift */; };
+		72eaa4c9ec80beab112e9db0 /* QRCodeChordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4b4b9d854ea4c226cf9c4015 /* QRCodeChordTests.swift */; };
+		ebefe0f0bf0f09a6dc417ba8 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6e686277f45446e9accdafc2 /* QRCodeView.swift */; };
 		2FA81FE02E43D9B700C12F92 /* Dictionary+RemoveItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA81FDF2E43D9A600C12F92 /* Dictionary+RemoveItem.swift */; };
 		2FB5BCA02CD8F73F008B33F4 /* ApplicationImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB5BC9F2CD8F73C008B33F4 /* ApplicationImage.swift */; };
 		2FD4993E2FFBA57800149F02 /* PinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4993D2FFBA57400149F02 /* PinManager.swift */; };
@@ -229,6 +234,11 @@
 		2F9B42F02F1A4999006548E5 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		2FA81FDF2E43D9A600C12F92 /* Dictionary+RemoveItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+RemoveItem.swift"; sourceTree = "<group>"; };
 		2FB5BC9F2CD8F73C008B33F4 /* ApplicationImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationImage.swift; sourceTree = "<group>"; };
+		1718d353d869bb79cbaa6a45 /* QRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
+		269987a7ddf50eae4561c775 /* QRCodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeTests.swift; sourceTree = "<group>"; };
+		4b4b9d854ea4c226cf9c4015 /* QRCodeChordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeChordTests.swift; sourceTree = "<group>"; };
+		6e686277f45446e9accdafc2 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
+		e64a5edec67b48de20d59f90 /* QRCodeWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeWindowController.swift; sourceTree = "<group>"; };
 		2FD4993D2FFBA57400149F02 /* PinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinManager.swift; sourceTree = "<group>"; };
 		2FD499442FFC487F00149F02 /* MovableByWindowBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovableByWindowBackgroundModifier.swift; sourceTree = "<group>"; };
 		2FD499462FFC4AEF00149F02 /* ItemEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEditorView.swift; sourceTree = "<group>"; };
@@ -756,6 +766,7 @@
 				2F0EC77A2E772899003E2EA9 /* PinsView.swift */,
 				DA5E627E2C39E53F00F4C710 /* PreviewItemView.strings */,
 				DA1969132C3F11D600258481 /* PreviewItemView.swift */,
+				6e686277f45446e9accdafc2 /* QRCodeView.swift */,
 				BBCCA6C3F9374C9C91414E3A /* LargeTextView.swift */,
 				DA1969172C3F327500258481 /* SearchFieldView.swift */,
 				2F578C402EFFE8920088B759 /* SlideoutContentView.swift */,
@@ -790,6 +801,8 @@
 				DAFE2DE8268A9B1B00990986 /* HistoryItemTests.swift */,
 				DA384E85232746D800603999 /* SearchTests.swift */,
 				DA696BD12401EEE900DE80CF /* SorterTests.swift */,
+				269987a7ddf50eae4561c775 /* QRCodeTests.swift */,
+				4b4b9d854ea4c226cf9c4015 /* QRCodeChordTests.swift */,
 				DA360DB41E3DF137005C6F6B /* Info.plist */,
 				4CB7148030897A9E00A357EC /* SharedStateTests.swift */,
 			);
@@ -906,6 +919,8 @@
 				2F0EC7802E773F1D003E2EA9 /* PasteStack.swift */,
 				DA689FC72C1D15140009B887 /* PinsPosition.swift */,
 				DA689FC52C1D14F10009B887 /* PopupPosition.swift */,
+				1718d353d869bb79cbaa6a45 /* QRCode.swift */,
+				e64a5edec67b48de20d59f90 /* QRCodeWindowController.swift */,
 				DAC14123232367B200FCFA30 /* Search.swift */,
 				2F1A79BF2C6DFB7800C98EBD /* SearchVisibility.swift */,
 				2F0EC77C2E773314003E2EA9 /* Selection.swift */,
@@ -1139,6 +1154,8 @@
 				DAE2850223225BD90080E394 /* ColorImageTests.swift in Sources */,
 				DA384E86232746D800603999 /* SearchTests.swift in Sources */,
 				DA696BD22401EEE900DE80CF /* SorterTests.swift in Sources */,
+				a38ff9be8f3a97218a3b46f8 /* QRCodeTests.swift in Sources */,
+				72eaa4c9ec80beab112e9db0 /* QRCodeChordTests.swift in Sources */,
 				CA110ED10000000000000001 /* CollectionSurroundingTests.swift in Sources */,
 				C0FFEE000000000000000003 /* ShortenedTests.swift in Sources */,
 				FFFC00000000000000000003 /* UnsafeForTitleLayoutTests.swift in Sources */,
@@ -1197,6 +1214,9 @@
 				2FA81FE02E43D9B700C12F92 /* Dictionary+RemoveItem.swift in Sources */,
 				DAA5ACCA2C1BEE8A00B58513 /* SoftwareUpdater.swift in Sources */,
 				2F9B42F12F1A499D006548E5 /* ToolbarView.swift in Sources */,
+				6dc850e8c4d4d695acbf474d /* QRCode.swift in Sources */,
+				ebefe0f0bf0f09a6dc417ba8 /* QRCodeView.swift in Sources */,
+				7c527c23046a559ebca9879f /* QRCodeWindowController.swift in Sources */,
 				DAA5ACB22C1B3F8800B58513 /* GeneralSettingsPane.swift in Sources */,
 				DA1969122C3F0DD200258481 /* HistoryItemView.swift in Sources */,
 				DA0EF1881E444B2A00E58577 /* Clipboard.swift in Sources */,

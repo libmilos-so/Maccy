@@ -22,4 +22,5 @@
 "history_item_selected_accessibility_value" = "Selected, %d of %d";
 "history_item_image_accessibility_label_no_app" = "Image, %dx%d";
 "history_item_image_accessibility_generic" = "Image";
+"qr_code_accessibility_label" = "QR code containing: %@";
 "toolbar_remove_paste_stack_action" = "Stop paste stack";

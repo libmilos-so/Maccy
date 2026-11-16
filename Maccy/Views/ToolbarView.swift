@@ -113,6 +113,13 @@ struct ToolbarView: View {
     return appState.navigator.selection.first
   }
 
+  // The QR button never disables — .help on a disabled button is unreliable —
+  // so its help explains what it will show instead.
+  private var qrCodeHelpKey: String {
+    guard let text = appState.qrCodeText else { return "ShowQRCodeNoText" }
+    return QRCode.canEncode(text) ? "ShowQRCode" : "ShowQRCodeTooLong"
+  }
+
   var body: some View {
     HStack {
       if !appState.navigator.selection.isEmpty {
@@ -149,6 +156,18 @@ struct ToolbarView: View {
         .disabled(pinActionDisabled)
 
         ToolbarButton {
+          appState.showQRCode()
+        } label: {
+          Image(systemName: "qrcode")
+        }
+        .shortcutKeyHelp(key: qrCodeHelpKey, tableName: "PreviewItemView")
+        .accessibilityIdentifier("show-qr-code")
+
+        ToolbarButton {
+          // The QR window floats above the edit sheet, which is wider than
+          // the popup — close it so it never overlaps the sheet (same reason
+          // a selection change closes it).
+          appState.closeQRCode()
           appState.isEditingItem = true
           editingItem = editableItem
         } label: {
